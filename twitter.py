@@ -29,7 +29,8 @@ def get_tweets(topic):
 
 def analyze(topics):
     tweets = (tweet for topic in topics for tweet in get_tweets(topic))
-    tweets_string = "\n\n".join(tweets)
+
+    tweets_string = "\n".join(tweets)
     annotations = calculate_sentiment(tweets_string)
     report = defaultdict(int)
 
