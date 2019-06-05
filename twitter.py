@@ -43,6 +43,10 @@ def analyze(topics):
             else:
                 report['neutrals'] += 1
             report['total'] += 1
+            report['average'] += score
+
+    report['average'] /= report['total']
+    
     return report
 
 if __name__ == '__main__':
