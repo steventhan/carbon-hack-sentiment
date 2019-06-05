@@ -11,7 +11,7 @@ API:
 
     paths:
         /search : default option, looks up sentiment of CapitalOne as a whole
-        /search/\<topic\> : searches the topic IN ADDITION to CapitalOne
+        /search/<topic> : searches the topic IN ADDITION to CapitalOne
 
 Alexa App:
 
