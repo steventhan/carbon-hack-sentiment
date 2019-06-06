@@ -1,23 +1,30 @@
 from flask import Flask
 from flask import jsonify
-from twitter import analyze
+from twitter import analyze_sentiment
+from watson import analyze_tones
 
 app = Flask(__name__)
 
-# Summary, mainly for debugging connections
 @app.route("/api")
 def Summary():
     return jsonify(response="Welcome to the CapitalOne sentiment API!")
 
-# Search about CapitalOne in general
-@app.route("/api/search")
-def search():
+@app.route("/api/sentiment/search")
+def search_sentiment():
     topics = ["@capitalone"]
-    return jsonify(analyze(topics)) 
+    return jsonify(analyze_sentiment(topics)) 
 
-
-# Search about a specific subject of CapitalOne
-@app.route("/api/search/<topic>")
-def searchTopic(topic):
+@app.route("/api/sentiment/search/<topic>")
+def search_sentiment_topic(topic):
     topics = ["@capitalone", topic]
-    return jsonify(analyze(topics))
+    return jsonify(analyze_sentiment(topics))
+
+@app.route("/api/tone/search")
+def search_tone():
+    topics = ["@capitalone"]
+    return jsonify(analyze_tones(topics))
+
+@app.route("/api/tone/search/<topic>")
+def search_tone_topic(topic):
+    topics = ["@capitalone", topic]
+    return jsonify(analyze_tones(topics))
