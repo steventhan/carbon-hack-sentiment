@@ -5,7 +5,7 @@ from twitter import analyze_sentiment
 from watson import analyze_tones
 
 # app = Flask(__name__, static_folder="./build")
-app = Flask(__name__, static_folder="build/static", template_folder="build")
+app = Flask(__name__, static_folder="react/static", template_folder="react")
 
 @app.route("/")
 def index():
