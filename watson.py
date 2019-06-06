@@ -32,9 +32,15 @@ def analyze_tones(topic):
 
         for tone in tones:
             tone_id = tone['tone_id']
+            score = tone['score']
             report[tone_id] += 1
+            report[tone_id + "_average_score"] += score
 
         report['total'] += 1
+
+    for key in list(report.keys()):
+        if key != "total" and not "_" in key:
+            report[key + '_average_score'] /= report[key]
 
     return report
 
