@@ -5,9 +5,9 @@ from watson import analyze_tones
 
 app = Flask(__name__)
 
-@app.route("/api")
+@app.route("/")
 def Summary():
-    return jsonify(response="Welcome to the CapitalOne sentiment API!")
+    return jsonify(response="Welcome to the CapitalOne Twitter Analysis API! Paths include /api/sentiment and /api/tone. To search about a specific CapitalOne product, add '<name_of_product>'")
 
 @app.route("/api/sentiment/search")
 def search_sentiment():

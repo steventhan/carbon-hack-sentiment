@@ -40,7 +40,7 @@ def analyze_tones(topic):
 
     for key in list(report.keys()):
         if key != "total" and not "_" in key:
-            report[key + '_average_score'] /= report[key]
+            report[key + '_average_score'] = '%.2f' % (100 * report[key + '_average_score'] / report[key])
 
     return report
 
