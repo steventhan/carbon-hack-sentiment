@@ -19,3 +19,11 @@ Visualization Site:
 
 Resources:
     https://github.com/geduldig/TwitterAPI
+    https://cloud.ibm.com/catalog/services/tone-analyzer
+    
+Next Steps:
+*Object Notation for tones and averages scores.
+*Database storing this same information by date (monthly averages? yearly averages?)
+*More robust visualizations with
+*Alexa App that asks if you want to add to the search criteria
+*Look up more than the last 50/100 tweets
