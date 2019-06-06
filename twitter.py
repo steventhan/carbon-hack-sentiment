@@ -15,8 +15,8 @@ POSITIVE_THRESHOLD = 0.3333
 NEGATIVE_THRESHOLD = -0.3333
 
 
-def get_tweets(topic):
-    r = api.request('search/tweets', {'q': topic, 'count': 100, 'tweet_mode': 'extended'})
+def get_tweets(topic, count):
+    r = api.request('search/tweets', {'q': topic, 'count': count, 'tweet_mode': 'extended'})
     tweets = []
     for index, item in enumerate(r):
         if 'retweeted_status' in item:
@@ -27,8 +27,8 @@ def get_tweets(topic):
     return tweets
 
 
-def analyze(topics):
-    tweets = (tweet for topic in topics for tweet in get_tweets(topic))
+def analyze_sentiment(topics):
+    tweets = (tweet for topic in topics for tweet in get_tweets(topic, 100))
 
     tweets_string = "\n".join(tweets)
     annotations = calculate_sentiment(tweets_string)
@@ -51,4 +51,4 @@ def analyze(topics):
     return report
 
 if __name__ == '__main__':
-    analyze(['@capitalone'])
+    print(analyze_sentiment(['@capitalone']))
