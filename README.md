@@ -1,7 +1,7 @@
 # hackathon-cap1
 
 CapitalOne Sentiment API
-A RESTful API used for quick, realtime, real-life information on Twitters opinion of CapitalOne. Uses the Twitter API and Google's Sentiment API to gather and analyze the information.
+A RESTful API used for quick, realtime, real-life information on Twitters opinion of CapitalOne. Uses the Twitter API and Google's Sentiment API along with IBM's Watson to gather and analyze the information.
 
 For example use cases, we setup an Amazon Alexa app and visualization website.
 
