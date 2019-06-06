@@ -10,8 +10,10 @@ API:
     url: https://carbon-hack-sentiment.herokuapp.com/
 
     paths:
-        /search : default option, looks up sentiment of CapitalOne as a whole
-        /search/<topic> : searches the topic IN ADDITION to CapitalOne
+        /api/tone/search : default option, looks up tone of CapitalOne as a whole
+        /api/tone/search/<topic> : searches the topic IN ADDITION to CapitalOne
+        /api/sentiment/search : default option, looks up sentiment of CapitalOne as a whole
+        /api/sentiment/search/<topic> : searches the topic IN ADDITION to CapitalOne
 
 Alexa App:
 
@@ -22,8 +24,8 @@ Resources:
     https://cloud.ibm.com/catalog/services/tone-analyzer
     
 Next Steps:
-*Object Notation for tones and averages scores.
-*Database storing this same information by date (monthly averages? yearly averages?)
-*More robust visualizations with
-*Alexa App that asks if you want to add to the search criteria
-*Look up more than the last 50/100 tweets
+    Object Notation for tones and averages scores.
+    Database storing this same information by date (monthly averages? yearly averages?)
+    More robust visualizations with
+    Alexa App that asks if you want to add to the search criteria
+    Look up more than the last 50/100 tweets
