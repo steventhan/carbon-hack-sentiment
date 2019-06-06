@@ -16,7 +16,7 @@ def get_tones(topic):
     tweet_object_arr = []
 
     for tweet in tweets:
-        tweet_object_arr.append({'text': tweet,'user': 'not-important'})
+        tweet_object_arr.append({'text': tweet})
     
     tone_chat = service.tone_chat(tweet_object_arr).get_result()
 
