@@ -1,13 +1,27 @@
-from flask import Flask
+import os
+from flask import Flask, render_template, send_from_directory
 from flask import jsonify
 from twitter import analyze_sentiment
 from watson import analyze_tones
 
-app = Flask(__name__)
+# app = Flask(__name__, static_folder="./build")
+app = Flask(__name__, static_folder="build/static", template_folder="build")
 
 @app.route("/")
-def Summary():
-    return jsonify(response="Welcome to the CapitalOne Twitter Analysis API! Paths include /api/sentiment and /api/tone. To search about a specific CapitalOne product, add '<name_of_product>'")
+def index():
+    return render_template('index.html')
+
+
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def serve(path):
+#     if path != "" and os.path.exists(app.static_folder + path):
+#         return send_from_directory(app.static_folder, path)
+#     else:
+#         return send_from_directory(app.static_folder, 'index.html')
+
+# def Summary():
+#     return jsonify(response="Welcome to the CapitalOne Twitter Analysis API! Paths include /api/sentiment and /api/tone. To search about a specific CapitalOne product, add '<name_of_product>'")
 
 @app.route("/api/sentiment/search")
 def search_sentiment():
@@ -16,7 +30,7 @@ def search_sentiment():
 
 @app.route("/api/sentiment/search/<topic>")
 def search_sentiment_topic(topic):
-    topics = ["@capitalone", topic]
+    topics = [topic]
     return jsonify(analyze_sentiment(topics))
 
 @app.route("/api/tone/search")
@@ -26,5 +40,5 @@ def search_tone():
 
 @app.route("/api/tone/search/<topic>")
 def search_tone_topic(topic):
-    topics = ["@capitalone", topic]
+    topics = [topic]
     return jsonify(analyze_tones(topics))
