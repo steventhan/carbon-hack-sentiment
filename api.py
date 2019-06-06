@@ -11,17 +11,9 @@ app = Flask(__name__, static_folder="build/static", template_folder="build")
 def index():
     return render_template('index.html')
 
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def serve(path):
-#     if path != "" and os.path.exists(app.static_folder + path):
-#         return send_from_directory(app.static_folder, path)
-#     else:
-#         return send_from_directory(app.static_folder, 'index.html')
-
-# def Summary():
-#     return jsonify(response="Welcome to the CapitalOne Twitter Analysis API! Paths include /api/sentiment and /api/tone. To search about a specific CapitalOne product, add '<name_of_product>'")
+@app.route("/api")
+def api():
+    return jsonify(response="Welcome to the CapitalOne Twitter Analysis API! Paths include /api/sentiment and /api/tone. To search about a specific CapitalOne product, add '<name_of_product>'")
 
 @app.route("/api/sentiment/search")
 def search_sentiment():
